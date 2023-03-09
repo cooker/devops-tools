@@ -40,9 +40,9 @@ func main() {
 	}
 	println("输入环境：")
 	cmdStr, _ := l.Readline()
+	// 连接 Eureka 服务器
+	client := fargo.NewConn(eurekaHost[cmdStr])
 	for {
-		// 连接 Eureka 服务器
-		client := fargo.NewConn(eurekaHost[cmdStr])
 		println("输入应用：")
 		cmdStr, _ = l.Readline()
 		app, _ := client.GetApp(cmdStr)
